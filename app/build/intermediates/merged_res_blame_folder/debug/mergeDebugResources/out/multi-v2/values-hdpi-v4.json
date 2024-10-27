@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "edu.fatecitaquera.userapp-mergeDebugResources-2:/values-hdpi-v4/values-hdpi-v4.xml",
+            "map": [
+                {
+                    "source": "/home/vitor/qr_code/EventBase/gradle/caches/transforms-4/568826df276ffc7fa970c28b8c7d2462/transformed/appcompat-1.7.0/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "6",
+                        "endColumns": "13",
+                        "endOffsets": "327"
+                    }
+                }
+            ]
+        }
+    ]
+}

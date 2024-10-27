@@ -1,0 +1,6 @@
+edu.fatecitaquera.userapp.test.app-androidTest-0 /home/vitor/AndroidStudioProjects/UserApp/app/build/generated/res/resValues/androidTest/debug
+edu.fatecitaquera.userapp.test.app-mergeDebugAndroidTestResources-1 /home/vitor/AndroidStudioProjects/UserApp/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/merged.dir
+edu.fatecitaquera.userapp.test.app-mergeDebugAndroidTestResources-2 /home/vitor/AndroidStudioProjects/UserApp/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/stripped.dir
+edu.fatecitaquera.userapp.test.app-debugAndroidTest-3 /home/vitor/AndroidStudioProjects/UserApp/app/build/intermediates/merged_res/debugAndroidTest/mergeDebugAndroidTestResources
+edu.fatecitaquera.userapp.test.app-tracing-1.2.0-4 /home/vitor/qr_code/EventBase/gradle/caches/transforms-4/883fa5ecadd3799dbe7f479370528a04/transformed/tracing-1.2.0/res
+edu.fatecitaquera.userapp.test.app-core-1.6.1-5 /home/vitor/qr_code/EventBase/gradle/caches/transforms-4/9001c2a2258e9875659cac7fb3bffa05/transformed/core-1.6.1/res
