@@ -70,8 +70,8 @@ public class AddUserActivity extends AppCompatActivity {
             user.setEmail(editTextEmail.getEditText().getText().toString());
             user.setPassword(editTextPassword.getEditText().getText().toString());
 
-            String id = userDAO.insert(user);
-            Toast.makeText(getApplicationContext(), "Usuário inserido com sucesso! ID: " + id, Toast.LENGTH_LONG).show();
+            if (userDAO.insert(user)) Toast.makeText(getApplicationContext(), "Usuário registrado com sucesso!", Toast.LENGTH_LONG).show();
+            else Toast.makeText(getApplicationContext(), "Não há conexão com a internet!", Toast.LENGTH_LONG).show();
 
             Intent intent = new Intent(this, LoginActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);

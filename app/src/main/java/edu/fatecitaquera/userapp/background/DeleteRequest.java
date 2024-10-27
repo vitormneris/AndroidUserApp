@@ -5,27 +5,25 @@ import android.os.AsyncTask;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Scanner;
 
 import edu.fatecitaquera.userapp.util.ConnectionFactory;
 
-public class DeleteRequest extends AsyncTask<String, Void, Void> {
+public class DeleteRequest extends AsyncTask<String, Void, Boolean> {
 
     @Override
-    protected Void doInBackground(String... strings) {
+    protected Boolean doInBackground(String... strings) {
         try {
             URL delete = new URL("http://" + ConnectionFactory.serverIP + ":8080/usuarios/" + strings[0] + "/deletar");
             HttpURLConnection connection = (HttpURLConnection) delete.openConnection();
             connection.setRequestMethod("DELETE");
-            connection.setRequestProperty("Content-type", "application/json");
-            connection.setDoOutput(true);
+            connection.setDoOutput(false);
             connection.setConnectTimeout(15000);
             connection.connect();
 
-            connection.getResponseCode();
+            if (connection.getResponseCode() == 204) return true;
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
+        return false;
     }
 }

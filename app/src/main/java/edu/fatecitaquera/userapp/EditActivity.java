@@ -47,6 +47,12 @@ public class EditActivity extends AppCompatActivity {
         String userId = getIntent().getStringExtra("userId");
         User user = userDAO.findById(userId);
 
+        if (user == null) {
+            Intent intent = new Intent(this, HomeActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
+
         editTexId.getEditText().setText(user.getId());
         editTextName.getEditText().setText(user.getName());
         editTextEmail.getEditText().setText(user.getEmail());
@@ -80,8 +86,10 @@ public class EditActivity extends AppCompatActivity {
             if (count < 2) {
                 Toast.makeText(getApplicationContext(), "Clique mais uma vez para deletar o usuário", Toast.LENGTH_LONG).show();
             } else {
-                userDAO.deleteById(userId);
-                Toast.makeText(getApplicationContext(), "Usuário deletado com sucesso! ID: " + userId, Toast.LENGTH_LONG).show();
+                if (userDAO.deleteById(userId))
+                    Toast.makeText(getApplicationContext(), "Usuário deletado com sucesso!", Toast.LENGTH_LONG).show();
+                else
+                    Toast.makeText(getApplicationContext(), "Não há conexão com a internet!", Toast.LENGTH_LONG).show();
 
                 Intent intent = new Intent(this, MainActivity.class);
                 intent.putExtra("userId", userId);
@@ -96,8 +104,10 @@ public class EditActivity extends AppCompatActivity {
             userUpdated.setEmail(editTextEmail.getEditText().getText().toString());
             userUpdated.setPassword(editTextPassword.getEditText().getText().toString());
 
-            userDAO.update(userId, userUpdated);
-            Toast.makeText(getApplicationContext(), "Usuário atualizado com sucesso! ID: " + userId, Toast.LENGTH_LONG).show();
+            if (userDAO.update(userId, userUpdated))
+                Toast.makeText(getApplicationContext(), "Usuário atualizado com sucesso!", Toast.LENGTH_LONG).show();
+            else
+                Toast.makeText(getApplicationContext(), "Não há conexão com a internet!", Toast.LENGTH_LONG).show();
 
             Intent intent = new Intent(this, HomeActivity.class);
             intent.putExtra("userId", userId);

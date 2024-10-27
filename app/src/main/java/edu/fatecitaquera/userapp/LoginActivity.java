@@ -64,7 +64,11 @@ public class LoginActivity extends AppCompatActivity {
         editTextPassword.getEditText().addTextChangedListener(textWatcher);
 
         buttonLogin.setOnClickListener((event) -> {
-            if (userDAO.login(editTextEmail.getEditText().getText().toString(), editTextPassword.getEditText().getText().toString())) {
+            Boolean login = userDAO.login(editTextEmail.getEditText().getText().toString(),
+                                            editTextPassword.getEditText().getText().toString());
+            if (login == null) {
+                errorMessage.setText("Sem conexão com a internet");
+            } else if (login) {
                 User user = userDAO.findByEmail(editTextEmail.getEditText().getText().toString());
                 Intent intent = new Intent(this, HomeActivity.class);
                 intent.putExtra("userId", user.getId());

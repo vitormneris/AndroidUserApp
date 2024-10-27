@@ -1,20 +1,17 @@
 package edu.fatecitaquera.userapp.background;
 
 import android.os.AsyncTask;
-import android.util.Log;
-import android.widget.Toast;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Scanner;
 
 import edu.fatecitaquera.userapp.util.ConnectionFactory;
 
-public class UserAddEventRequest extends AsyncTask<String, Void, Void> {
+public class UserAddEventRequest extends AsyncTask<String, Void, Boolean> {
 
     @Override
-    protected Void doInBackground(String... strings) {
+    protected Boolean doInBackground(String... strings) {
         try {
             URL userAddEvent = new URL("http://" + ConnectionFactory.serverIP + ":8080/eventos/usuarioid/" + strings[0] + "/eventoid/" + strings[1]);
             HttpURLConnection connection = (HttpURLConnection) userAddEvent.openConnection();
@@ -24,11 +21,10 @@ public class UserAddEventRequest extends AsyncTask<String, Void, Void> {
             connection.setConnectTimeout(15000);
             connection.connect();
 
-            Log.i("HTTP METHOD",  "" + connection.getResponseCode());
-
+            if (connection.getResponseCode() == 200) return true;
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
+        return false;
     }
 }

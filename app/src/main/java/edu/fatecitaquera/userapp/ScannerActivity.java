@@ -52,6 +52,8 @@ public class ScannerActivity extends AppCompatActivity {
             return insets;
         });
 
+        internetVerification();
+
         // Verificar permissões da câmera
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA)
                 == PackageManager.PERMISSION_GRANTED) {
@@ -113,9 +115,10 @@ public class ScannerActivity extends AppCompatActivity {
 
         scanner.process(image)
                 .addOnSuccessListener(barcodes -> {
-                    // Processar os QR codes detectados
-                    if (!barcodes.isEmpty()) {
+
+                if (!barcodes.isEmpty()) {
                         for (Barcode barcode : barcodes) {
+                            internetVerification();
 
                             String userId = getIntent().getStringExtra("userId");
                             String eventId = barcode.getRawValue();
@@ -123,7 +126,7 @@ public class ScannerActivity extends AppCompatActivity {
                             userDAO = new UserDAO();
                             userDAO.userAddEvent(userId, eventId);
 
-                            Toast.makeText(this, "USER ID: " + userId + "EVENT ID: " + eventId, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, "QR Code escaneado com sucesso!", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(this, HomeActivity.class);
                             intent.putExtra("userId", userId);
                             startActivity(intent);
@@ -151,5 +154,16 @@ public class ScannerActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         cameraExecutor.shutdown();
+    }
+
+    private void internetVerification() {
+        userDAO = new UserDAO();
+        String userId = getIntent().getStringExtra("userId");
+        if (userDAO.findById(userId) == null) {
+            Intent intent = new Intent(this, HomeActivity.class);
+            intent.putExtra("userId", userId);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
     }
 }
