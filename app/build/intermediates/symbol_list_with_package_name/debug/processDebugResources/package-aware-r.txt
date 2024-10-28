@@ -3409,6 +3409,7 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imageViewQRCode
 id image_error
 id immediateStop
 id included
@@ -3546,8 +3547,6 @@ id pin
 id position
 id postLayout
 id pressed
-id previewView
-id preview_container
 id progress_circular
 id progress_horizontal
 id radio
@@ -3837,7 +3836,7 @@ layout activity_edit
 layout activity_home
 layout activity_login
 layout activity_main
-layout activity_scanner
+layout activity_qrcode
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog

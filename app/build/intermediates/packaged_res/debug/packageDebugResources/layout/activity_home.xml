@@ -60,15 +60,14 @@
                 android:id="@+id/buttonQRCodeRead"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ler QR Code"
-                android:textColor="@color/dark"
                 android:layout_gravity="center"
-                android:padding="20dp"
-                android:layout_weight="1"
-                android:textSize="20sp"
                 android:layout_margin="30dp"
-                android:background="@drawable/button_selector">
-            </androidx.appcompat.widget.AppCompatButton>
+                android:layout_weight="1"
+                android:background="@drawable/button_selector"
+                android:padding="20dp"
+                android:text="Exibir QR Code"
+                android:textColor="@color/dark"
+                android:textSize="20sp"></androidx.appcompat.widget.AppCompatButton>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

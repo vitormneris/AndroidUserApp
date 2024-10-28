@@ -42,7 +42,7 @@ public class HomeActivity extends AppCompatActivity {
         User user = userDAO.findById(userId);
 
         buttonQRCodeRead.setOnClickListener((event) -> {
-            Intent intent = new Intent(this, ScannerActivity.class);
+            Intent intent = new Intent(this, QRCodeActivity.class);
             intent.putExtra("userId", user.getId());
             startActivity(intent);
         });

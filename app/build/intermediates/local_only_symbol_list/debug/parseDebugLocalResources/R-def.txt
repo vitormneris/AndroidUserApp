@@ -28,11 +28,10 @@ id buttonSave
 id buttonSingUp
 id buttonUpdate
 id errorMessage
+id imageViewQRCode
 id image_error
 id main
 id message
-id previewView
-id preview_container
 id userEmail
 id userId
 id userListView
@@ -47,7 +46,7 @@ layout activity_edit
 layout activity_home
 layout activity_login
 layout activity_main
-layout activity_scanner
+layout activity_qrcode
 layout message_error
 layout user_info
 mipmap ic_launcher

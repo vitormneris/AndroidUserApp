@@ -12,7 +12,6 @@ import edu.fatecitaquera.userapp.background.FindByIdRequest;
 import edu.fatecitaquera.userapp.background.InsertRequest;
 import edu.fatecitaquera.userapp.background.LoginRequest;
 import edu.fatecitaquera.userapp.background.UpdateRequest;
-import edu.fatecitaquera.userapp.background.UserAddEventRequest;
 import edu.fatecitaquera.userapp.model.User;
 
 public class UserDAO {
@@ -99,16 +98,6 @@ public class UserDAO {
         }
 
         return null;
-    }
-
-    public boolean userAddEvent(String userId, String eventId) {
-        try {
-            UserAddEventRequest userAddEventRequest = new UserAddEventRequest();
-            return userAddEventRequest.execute(userId, eventId).get();
-        } catch (ExecutionException | InterruptedException e) {
-            e.printStackTrace();
-        }
-        return false;
     }
 
     private User convertToUser(String jsonString) {
