@@ -9,10 +9,10 @@ import java.net.URL;
 
 import edu.fatecitaquera.userapp.util.ConnectionFactory;
 
-public class InsertRequest extends AsyncTask<String, Void, Boolean> {
+public class InsertRequest extends AsyncTask<String, Void, String> {
 
     @Override
-    protected Boolean doInBackground(String... strings) {
+    protected String doInBackground(String... strings) {
         try {
             URL insert = new URL("http://" + ConnectionFactory.serverIP + ":8080/usuarios/inserir");
             HttpURLConnection connection = (HttpURLConnection) insert.openConnection();
@@ -22,11 +22,12 @@ public class InsertRequest extends AsyncTask<String, Void, Boolean> {
             PrintStream printStream = new PrintStream(connection.getOutputStream());
             printStream.println(strings[0]);
             connection.connect();
+            if (connection.getResponseCode() == 409) return  "conflict";
 
-            if (connection.getResponseCode() == 201) return true;
+            if (connection.getResponseCode() == 201) return "true";
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return false;
+        return "false";
     }
 }

@@ -1,5 +1,7 @@
 package edu.fatecitaquera.userapp.dao;
 
+import android.provider.ContactsContract;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -50,7 +52,7 @@ public class UserDAO {
         return user;
     }
 
-    public boolean insert(User user){
+    public String insert(User user) {
         ObjectMapper objectMapper = new ObjectMapper();
 
         try {
@@ -59,7 +61,7 @@ public class UserDAO {
         } catch (ExecutionException | InterruptedException | JsonProcessingException e) {
             e.printStackTrace();
         }
-        return false;
+        return "false";
     }
 
     public boolean update(String id, User user){
