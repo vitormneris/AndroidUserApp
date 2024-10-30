@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "edu.fatecitaquera.userapp-mergeDebugResources-39:/values-hdpi-v4/values-hdpi-v4.xml",
+            "outputFile": "edu.fatecitaquera.userapp-mergeDebugResources-2:/values-hdpi-v4/values-hdpi-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\fabio\\.gradle\\caches\\transforms-4\\568826df276ffc7fa970c28b8c7d2462\\transformed\\appcompat-1.7.0\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
+                    "source": "/home/vitor/qr_code/EventBase/gradle/caches/transforms-4/568826df276ffc7fa970c28b8c7d2462/transformed/appcompat-1.7.0/res/values-hdpi-v4/values-hdpi-v4.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
